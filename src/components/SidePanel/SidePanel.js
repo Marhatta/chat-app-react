@@ -12,12 +12,11 @@ class SidePanel extends Component{
         return(
             <Menu
               size='large'
-              invertedfixed='left'
               vertical 
-              style={{background:'#4c3c4c',fontSize:'12.rem'}} 
+              style={{background:'#4c3c4c',fontSize:'12.rem',marginLeft:'50px'}} 
               >
                 <UserPanel currentUser={currentUser}/>
-                <Channels />
+                <Channels currentUser={currentUser}/>
             </Menu>
         )
     }
