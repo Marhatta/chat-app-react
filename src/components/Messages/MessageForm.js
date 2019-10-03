@@ -5,6 +5,7 @@ import uuidv4 from 'uuid/v4';
 import firebase from '../../firebase';
 
 import FileModal from './FileModal';
+import ProgressBar from './ProgressBar';
 
 class MessageForm extends Component{
 
@@ -127,7 +128,7 @@ class MessageForm extends Component{
 
     render(){
 
-        const { errors,message,loading,modal} = this.state;
+        const { errors,message,loading,modal,uploadState,percentUploaded} = this.state;
         return(
             <Segment>
                 <Input 
@@ -160,12 +161,16 @@ class MessageForm extends Component{
                         icon='cloud upload'
                         onClick={this.openModal}
                     />
-                    <FileModal 
+                </Button.Group>
+                <FileModal 
                         uploadFile={this.uploadFile}
                         modal={modal}
                         closeModal={this.closeModal}
                     />
-                </Button.Group>
+                <ProgressBar 
+                    uploadState={uploadState}
+                    percentUploaded={percentUploaded}
+                 />
             </Segment>
         );
     }
