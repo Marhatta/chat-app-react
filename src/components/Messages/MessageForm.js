@@ -155,6 +155,7 @@ class MessageForm extends Component{
                         onClick={this.sendMessage}
                     />
                     <Button 
+                        disabled={uploadState === 'uploadImg'}
                         color='teal'
                         content='Upload Media'
                         labelPosition='right'
