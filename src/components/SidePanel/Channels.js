@@ -18,7 +18,7 @@ class Channels extends Component{
         modal:false,
         firstLoad:true,
         activeChannel:'',
-        messagesRef:firebase.database().ref('mesages'),
+        messagesRef:firebase.database().ref('messages'),
         notifications:[]
     }
 
@@ -126,7 +126,6 @@ class Channels extends Component{
                 count = notification.count;
             }
         });
-
         if(count > 0) return count;
     }
 
