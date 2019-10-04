@@ -15,7 +15,8 @@ class DirectMessages extends Component {
         //./info/connected is the firebase way to check whether
         // the connection is live or no
         connectedRef:firebase.database().ref('.info/connected'),
-        presenceRef:firebase.database().ref('presence')
+        presenceRef:firebase.database().ref('presence'),
+        activeChannel:''
     }
 
     componentDidMount(){
@@ -81,6 +82,7 @@ class DirectMessages extends Component {
         }
         this.props.setCurrentChannel(channelData);
         this.props.setPrivateChannel(true);
+        this.setActiveChannel(user.uid);
     }
 
     //returns a unique channel id/ref for direct messages
@@ -91,8 +93,12 @@ class DirectMessages extends Component {
             `${currentUserId}/${userId}`
     }
 
+    setActiveChannel = userId => {
+        this.setState({activeChannel:userId});
+    }
+
     render(){
-        const {users} = this.state;
+        const {users,activeChannel} = this.state;
         return(
             <Menu.Menu className='menu'>
                 <Menu.Item style={{color:'whitesmoke'}}>
@@ -103,6 +109,7 @@ class DirectMessages extends Component {
                 </Menu.Item>
                 {users.map(user => (
                     <Menu.Item
+                        active={user.uid === activeChannel}
                         key={user.uid}
                         onClick={() => this.changeChannel(user)}
                         style={{opacity:.7,fontStyle:'italic',color:'whitesmoke'}}
