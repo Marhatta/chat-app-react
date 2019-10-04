@@ -123,7 +123,7 @@ class Channels extends Component{
 
         return(
             <Fragment>
-            <Menu.Menu style={{paddingBottom:'2em'}} >
+            <Menu.Menu className='menu' >
                 <Menu.Item style={{color:'white'}}>
                     <span>
                         <Icon name='exchange' /> CHANNELS
