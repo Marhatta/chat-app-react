@@ -21,7 +21,7 @@ class MetaPanel extends Component{
 
     displayTopPosters = posts => (
         Object.entries(posts)
-            .sort((a,b) => b[1] = a[1])
+            .sort((a,b) => b[1] - a[1])
             .map(([key,val],i) => (
                 <List.Item key={i}>
                     <Image avatar src={val.avatar} />
