@@ -15,7 +15,7 @@ class SidePanel extends Component{
             <Menu
               size='large'
               vertical 
-              style={{background:primaryColor,fontSize:'12.rem',marginLeft:'50px'}} 
+              style={{background:primaryColor,fontSize:'12.rem',marginLeft:'50px',height:'100vh'}} 
               >
                 <UserPanel primaryColor={primaryColor} currentUser={currentUser}/>
                 <Starred currentUser={currentUser}/>
